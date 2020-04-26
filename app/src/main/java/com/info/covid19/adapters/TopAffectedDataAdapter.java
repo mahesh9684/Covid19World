@@ -50,7 +50,9 @@ public class TopAffectedDataAdapter extends RecyclerView.Adapter<TopAffectedData
         holder.layout.setOnClickListener(v -> {
 
             if (object.get("country_name").toString().replace("\"", "").equalsIgnoreCase("USA")) {
-                context.startActivity(new Intent(context, StateActivity.class));
+                Intent intent = new Intent(context, StateActivity.class);
+                intent.putExtra("flag", object.get("country_flag").toString().replace("\"", ""));
+                context.startActivity(intent);
             }
         });
 

@@ -8,8 +8,7 @@
     android:elevation="10dp"
     android:layout_marginLeft="10dp"
     android:layout_marginTop="10dp"
-    android:layout_marginRight="10dp"
-    android:layout_marginBottom="20dp"
+    android:layout_marginBottom="10dp"
     app:cardCornerRadius="10dp">
 
     <LinearLayout
@@ -18,8 +17,8 @@
         android:layout_height="wrap_content"
         android:gravity="center_vertical"
         android:orientation="horizontal"
-        android:paddingLeft="15dp"
-        android:paddingRight="15dp"
+        android:paddingLeft="10dp"
+        android:paddingRight="10dp"
         android:paddingTop="20dp"
         android:paddingBottom="20dp">
 
@@ -32,7 +31,7 @@
             android:id="@+id/locationName"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="10dp"
+            android:layout_marginLeft="5dp"
             android:padding="5dp"
             android:text="India"
             android:textColor="#000000"
@@ -42,7 +41,7 @@
             android:id="@+id/locationConfirmed"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="10dp"
+            android:layout_marginLeft="5dp"
             android:padding="5dp"
             android:text="789"
             android:textAlignment="center"
@@ -52,7 +51,7 @@
             android:id="@+id/locationRecovered"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="10dp"
+            android:layout_marginLeft="5dp"
             android:padding="5dp"
             android:text="456"
             android:textAlignment="center"
@@ -62,7 +61,7 @@
             android:id="@+id/locationDeceased"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="10dp"
+            android:layout_marginLeft="5dp"
             android:padding="5dp"
             android:text="123"
             android:textAlignment="textEnd"

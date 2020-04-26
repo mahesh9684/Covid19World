@@ -37,7 +37,7 @@ public class CountryDataAdapter extends RecyclerView.Adapter<CountryDataAdapter.
 
         JsonObject object = array.get(position).getAsJsonObject();
 
-        holder.locationName.setText(object.get("state").toString().replace("\"", "").replace("_", " "));
+        holder.locationName.setText(object.get("state_name").toString().replace("\"", ""));
         holder.locationName.setTextAlignment(View.TEXT_ALIGNMENT_CENTER);
         holder.locationConfirmed.setText(object.get("total_cases").toString().replace("\"", ""));
         holder.locationRecovered.setText(object.get("active_cases").toString().replace("\"", ""));

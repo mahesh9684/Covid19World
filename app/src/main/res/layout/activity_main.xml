@@ -80,7 +80,8 @@
                         android:id="@+id/textCorona"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_margin="20dp"
+                        android:layout_marginTop="20dp"
+                        android:layout_marginLeft="10dp"
                         android:text="Corona 19 Cases Overview"
                         android:textColor="#FFFFFF"
                         android:textSize="18sp"
@@ -92,9 +93,9 @@
                     android:id="@+id/showAllDataCard"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:layout_marginLeft="20dp"
+                    android:layout_marginLeft="10dp"
                     android:layout_marginTop="60dp"
-                    android:layout_marginRight="20dp"
+                    android:layout_marginRight="10dp"
                     android:layout_marginBottom="20dp"
                     android:elevation="10dp"
                     app:cardCornerRadius="10dp">
@@ -237,7 +238,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_below="@id/showAllDataCard"
-                    android:layout_marginLeft="20dp"
+                    android:layout_marginLeft="10dp"
                     android:text="Top 10 Affected Countries"
                     android:textSize="20sp"
                     android:textStyle="bold" />
@@ -251,9 +252,10 @@
                     <androidx.recyclerview.widget.RecyclerView
                         android:id="@+id/showTopAffectedCountries"
                         android:layout_width="wrap_content"
-                        android:layout_height="match_parent"
+                        android:layout_height="wrap_content"
+                        android:clipToPadding="false"
                         android:orientation="horizontal"
-                        android:padding="10dp"
+                        android:padding="5dp"
                         android:visibility="gone" />
 
                 </RelativeLayout>
@@ -264,7 +266,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_below="@id/showTopCountry"
-                    android:layout_marginLeft="20dp"
+                    android:layout_marginLeft="10dp"
                     android:layout_marginRight="20dp"
                     android:text="All Countries"
                     android:textColor="#000000"
@@ -286,7 +288,7 @@
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
                         android:text="Location"
-                        android:textAlignment="center"
+                        android:textAlignment="textStart"
                         android:textColor="#000000" />
 
                     <TextView
