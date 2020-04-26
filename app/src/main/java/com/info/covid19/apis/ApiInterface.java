@@ -23,6 +23,6 @@ public interface ApiInterface {
     @GET("all.php")
     Call<JsonObject> getCovidData();
 
-    @GET(".")
-    Call<JsonObject> getCountryData();
+    @GET("usa.php")
+    Call<JsonObject> getStateData();
 }

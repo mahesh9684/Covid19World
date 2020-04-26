@@ -13,7 +13,11 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true">
-        <activity android:name=".views.DomainActivity"></activity>
+        <activity
+            android:name=".views.StateActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppThemeNoAction"
+            tools:ignore="LockedOrientationActivity"></activity>
         <activity
             android:name=".views.SplashActivity"
             android:configChanges="orientation|screenSize"

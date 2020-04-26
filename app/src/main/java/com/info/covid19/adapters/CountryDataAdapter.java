@@ -1,4 +1,4 @@
-package com.info.covid19;
+package com.info.covid19.adapters;
 
 import android.content.Context;
 import android.view.LayoutInflater;
@@ -12,6 +12,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.google.gson.JsonArray;
 import com.google.gson.JsonObject;
+import com.info.covid19.R;
 import com.squareup.picasso.Picasso;
 
 public class CountryDataAdapter extends RecyclerView.Adapter<CountryDataAdapter.MyViewHolder> {
@@ -36,22 +37,14 @@ public class CountryDataAdapter extends RecyclerView.Adapter<CountryDataAdapter.
 
         JsonObject object = array.get(position).getAsJsonObject();
 
-        holder.locationName.setText(object.get("country_name").toString().replace("\"", ""));
+        holder.locationName.setText(object.get("state").toString().replace("\"", "").replace("_", " "));
+        holder.locationName.setTextAlignment(View.TEXT_ALIGNMENT_CENTER);
         holder.locationConfirmed.setText(object.get("total_cases").toString().replace("\"", ""));
-        holder.locationRecovered.setText(object.get("total_recovered").toString().replace("\"", ""));
+        holder.locationRecovered.setText(object.get("active_cases").toString().replace("\"", ""));
+//        holder.locationRecovered.setText(object.get("total_recovered").toString().replace("\"", ""));
         holder.locationDeceased.setText(object.get("total_deaths").toString().replace("\"", ""));
-//        holder.flag.setVisibility(View.GONE);
 
-        try {
-            Picasso.get()
-                    .load(object.get("country_flag").toString().replace("\"", ""))
-//                    .resize(30, 50)
-//                    .centerCrop()
-                    .placeholder(R.mipmap.ic_launcher)
-                    .into(holder.flag);
-        } catch (Exception e) {
-            System.out.println("Exception inside adapter " + e);
-        }
+        holder.flag.setVisibility(View.GONE);
     }
 
     @Override

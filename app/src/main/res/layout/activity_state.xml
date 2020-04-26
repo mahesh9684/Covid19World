@@ -16,7 +16,7 @@
             android:layout_height="wrap_content"
             app:layout_constraintTop_toTopOf="parent">
 
-            <!--<FrameLayout
+            <FrameLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
 
@@ -24,15 +24,15 @@
                     android:id="@+id/toolbar"
                     android:layout_width="match_parent"
                     android:layout_height="?attr/actionBarSize"
-                    android:background="#FFFFFF"
+                    android:background="#0E65CA"
                     android:elevation="12dp">
 
-                    &lt;!&ndash;<ImageView
-                        android:id="@+id/backWallet"
+                    <ImageView
+                        android:id="@+id/backState"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_gravity="start"
-                        android:background="@drawable/back_icon" />&ndash;&gt;
+                        android:background="@drawable/back_icon" />
 
                     <TextView
                         android:id="@+id/tvTitle"
@@ -41,20 +41,20 @@
                         android:layout_gravity="center"
                         android:gravity="center"
                         android:text="Covid-19"
-                        android:textColor="#000000"
+                        android:textColor="#FFFFFF"
                         android:textSize="18sp"
                         android:textStyle="bold" />
 
 
-                    &lt;!&ndash;<ImageView
+                    <!--<ImageView
                         android:id="@+id/editProfile"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_gravity="end"
                         android:layout_marginEnd="@dimen/_15sdp"
-                        android:background="@drawable/edit_profile" />&ndash;&gt;
+                        android:background="@drawable/edit_profile" />-->
                 </androidx.appcompat.widget.Toolbar>
-            </FrameLayout>-->
+            </FrameLayout>
 
         </com.google.android.material.appbar.AppBarLayout>
 
@@ -95,7 +95,7 @@
                     android:layout_marginLeft="20dp"
                     android:layout_marginTop="60dp"
                     android:layout_marginRight="20dp"
-                    android:layout_marginBottom="20dp"
+                    android:layout_marginBottom="30dp"
                     android:elevation="10dp"
                     app:cardCornerRadius="10dp">
 
@@ -111,7 +111,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_margin="10dp"
-                            android:text="Across World"
+                            android:text="Across Country"
                             android:textColor="#000000"
                             android:textSize="18sp" />
 
@@ -135,7 +135,7 @@
                                 android:layout_width="0dp"
                                 android:layout_height="wrap_content"
                                 android:layout_weight="1"
-                                android:text="Recovered" />
+                                android:text="Active" />
 
                             <TextView
                                 android:layout_width="0dp"
@@ -231,42 +231,14 @@
 
                 </androidx.cardview.widget.CardView>
 
-
-                <TextView
-                    android:id="@+id/affectedCountries"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_below="@id/showAllDataCard"
-                    android:layout_marginLeft="20dp"
-                    android:text="Top 10 Affected Countries"
-                    android:textSize="20sp"
-                    android:textStyle="bold" />
-
-                <RelativeLayout
-                    android:id="@+id/showTopCountry"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_below="@+id/affectedCountries">
-
-                    <androidx.recyclerview.widget.RecyclerView
-                        android:id="@+id/showTopAffectedCountries"
-                        android:layout_width="wrap_content"
-                        android:layout_height="match_parent"
-                        android:orientation="horizontal"
-                        android:padding="10dp"
-                        android:visibility="gone" />
-
-                </RelativeLayout>
-
-
                 <TextView
                     android:id="@+id/stateText"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_below="@id/showTopCountry"
+                    android:layout_below="@id/showAllDataCard"
                     android:layout_marginLeft="20dp"
                     android:layout_marginRight="20dp"
-                    android:text="All Countries"
+                    android:text="All States/UT stats"
                     android:textColor="#000000"
                     android:textSize="20sp"
                     android:textStyle="bold" />
@@ -277,7 +249,6 @@
                     android:layout_height="wrap_content"
                     android:layout_below="@id/stateText"
                     android:layout_margin="20dp"
-                    android:background="#FFFFFF"
                     android:orientation="horizontal"
                     android:weightSum="4">
 
@@ -301,7 +272,7 @@
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
-                        android:text="Recovered"
+                        android:text="Active"
                         android:textAlignment="textEnd"
                         android:textColor="#5da4a0" />
 
@@ -327,8 +298,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_below="@+id/view"
-                    android:nestedScrollingEnabled="false"
-                    android:visibility="gone" />
+                    android:nestedScrollingEnabled="false" />
 
             </RelativeLayout>
         </androidx.core.widget.NestedScrollView>
