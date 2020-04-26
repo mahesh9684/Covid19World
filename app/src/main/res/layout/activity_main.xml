@@ -80,8 +80,8 @@
                         android:id="@+id/textCorona"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginTop="20dp"
                         android:layout_marginLeft="10dp"
+                        android:layout_marginTop="20dp"
                         android:text="Corona 19 Cases Overview"
                         android:textColor="#FFFFFF"
                         android:textSize="18sp"
@@ -96,7 +96,7 @@
                     android:layout_marginLeft="10dp"
                     android:layout_marginTop="60dp"
                     android:layout_marginRight="10dp"
-                    android:layout_marginBottom="20dp"
+                    android:layout_marginBottom="30dp"
                     android:elevation="10dp"
                     app:cardCornerRadius="10dp">
 
@@ -104,8 +104,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:paddingLeft="10dp"
-                        android:paddingTop="10dp"
-                        android:paddingRight="10dp">
+                        android:paddingTop="10dp">
 
                         <TextView
                             android:id="@+id/countryName"
@@ -129,20 +128,22 @@
                             <TextView
                                 android:layout_width="0dp"
                                 android:layout_height="wrap_content"
-                                android:layout_weight="1"
+                                android:layout_weight="0.9"
                                 android:text="Confirmed" />
 
                             <TextView
                                 android:layout_width="0dp"
                                 android:layout_height="wrap_content"
                                 android:layout_weight="1"
+                                android:gravity="center"
                                 android:text="Recovered" />
 
                             <TextView
                                 android:layout_width="0dp"
                                 android:layout_height="wrap_content"
                                 android:layout_weight="1"
-                                android:text="Deaths" />
+                                android:text="Deaths"
+                                android:textAlignment="center" />
 
                         </LinearLayout>
 
@@ -160,7 +161,7 @@
                                 android:id="@+id/confirmedCases"
                                 android:layout_width="0dp"
                                 android:layout_height="wrap_content"
-                                android:layout_weight="1"
+                                android:layout_weight="0.9"
                                 android:text=""
                                 android:textColor="#e6828c"
                                 android:textSize="18sp"
@@ -171,6 +172,7 @@
                                 android:layout_width="0dp"
                                 android:layout_height="wrap_content"
                                 android:layout_weight="1"
+                                android:gravity="center"
                                 android:text=""
                                 android:textColor="#5da4a0"
                                 android:textSize="18sp"
@@ -182,6 +184,7 @@
                                 android:layout_height="wrap_content"
                                 android:layout_weight="1"
                                 android:text=""
+                                android:textAlignment="center"
                                 android:textColor="#404048"
                                 android:textSize="18sp"
                                 android:textStyle="bold" />
@@ -203,7 +206,7 @@
                                 android:id="@+id/confirmedDailyCases"
                                 android:layout_width="0dp"
                                 android:layout_height="wrap_content"
-                                android:layout_weight="1"
+                                android:layout_weight="0.9"
                                 android:text=""
                                 android:textColor="#e6828c"
                                 android:textSize="16sp" />
@@ -223,6 +226,7 @@
                                 android:layout_height="wrap_content"
                                 android:layout_weight="1"
                                 android:text=""
+                                android:textAlignment="center"
                                 android:textColor="#404048"
                                 android:textSize="16sp" />
 

@@ -40,7 +40,9 @@ public class CountryDataAdapter extends RecyclerView.Adapter<CountryDataAdapter.
         holder.locationName.setText(object.get("state_name").toString().replace("\"", ""));
         holder.locationName.setTextAlignment(View.TEXT_ALIGNMENT_CENTER);
         holder.locationConfirmed.setText(object.get("total_cases").toString().replace("\"", ""));
+        holder.locationConfirmed.setTextAlignment(View.TEXT_ALIGNMENT_TEXT_END);
         holder.locationRecovered.setText(object.get("active_cases").toString().replace("\"", ""));
+        holder.locationRecovered.setTextAlignment(View.TEXT_ALIGNMENT_TEXT_END);
 //        holder.locationRecovered.setText(object.get("total_recovered").toString().replace("\"", ""));
         holder.locationDeceased.setText(object.get("total_deaths").toString().replace("\"", ""));
 

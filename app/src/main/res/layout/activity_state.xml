@@ -38,17 +38,17 @@
                         android:id="@+id/flagCountry"
                         android:layout_width="30dp"
                         android:layout_height="30dp"
-                        android:layout_marginRight="10dp"
-                        android:layout_gravity="center" />
+                        android:layout_gravity="center"
+                        android:layout_marginRight="10dp" />
 
                     <TextView
                         android:id="@+id/tvTitle"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
+                        android:layout_marginLeft="10dp"
                         android:gravity="center"
                         android:text="Covid-19"
-                        android:layout_marginLeft="10dp"
                         android:textColor="#FFFFFF"
                         android:textSize="18sp"
                         android:textStyle="bold" />
@@ -111,8 +111,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:paddingLeft="10dp"
-                        android:paddingTop="10dp"
-                        android:paddingRight="10dp">
+                        android:paddingTop="10dp">
 
                         <TextView
                             android:id="@+id/countryName"
@@ -136,20 +135,22 @@
                             <TextView
                                 android:layout_width="0dp"
                                 android:layout_height="wrap_content"
-                                android:layout_weight="1"
+                                android:layout_weight="0.9"
                                 android:text="Confirmed" />
 
                             <TextView
                                 android:layout_width="0dp"
                                 android:layout_height="wrap_content"
                                 android:layout_weight="1"
+                                android:gravity="center"
                                 android:text="Active" />
 
                             <TextView
                                 android:layout_width="0dp"
                                 android:layout_height="wrap_content"
                                 android:layout_weight="1"
-                                android:text="Deaths" />
+                                android:text="Deaths"
+                                android:textAlignment="center" />
 
                         </LinearLayout>
 
@@ -167,7 +168,7 @@
                                 android:id="@+id/confirmedCases"
                                 android:layout_width="0dp"
                                 android:layout_height="wrap_content"
-                                android:layout_weight="1"
+                                android:layout_weight="0.9"
                                 android:text=""
                                 android:textColor="#e6828c"
                                 android:textSize="18sp"
@@ -178,6 +179,7 @@
                                 android:layout_width="0dp"
                                 android:layout_height="wrap_content"
                                 android:layout_weight="1"
+                                android:gravity="center"
                                 android:text=""
                                 android:textColor="#5da4a0"
                                 android:textSize="18sp"
@@ -189,6 +191,7 @@
                                 android:layout_height="wrap_content"
                                 android:layout_weight="1"
                                 android:text=""
+                                android:textAlignment="center"
                                 android:textColor="#404048"
                                 android:textSize="18sp"
                                 android:textStyle="bold" />
@@ -210,7 +213,7 @@
                                 android:id="@+id/confirmedDailyCases"
                                 android:layout_width="0dp"
                                 android:layout_height="wrap_content"
-                                android:layout_weight="1"
+                                android:layout_weight="0.9"
                                 android:text=""
                                 android:textColor="#e6828c"
                                 android:textSize="16sp" />
@@ -230,6 +233,7 @@
                                 android:layout_height="wrap_content"
                                 android:layout_weight="1"
                                 android:text=""
+                                android:textAlignment="center"
                                 android:textColor="#404048"
                                 android:textSize="16sp" />
 
@@ -280,6 +284,7 @@
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
+                        android:paddingEnd="10dp"
                         android:text="Active"
                         android:textAlignment="textEnd"
                         android:textColor="#5da4a0" />
