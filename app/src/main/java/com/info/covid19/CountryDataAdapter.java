@@ -47,6 +47,7 @@ public class CountryDataAdapter extends RecyclerView.Adapter<CountryDataAdapter.
                     .load(object.get("country_flag").toString().replace("\"", ""))
 //                    .resize(30, 50)
 //                    .centerCrop()
+                    .placeholder(R.mipmap.ic_launcher)
                     .into(holder.flag);
         } catch (Exception e) {
             System.out.println("Exception inside adapter " + e);

@@ -4,6 +4,7 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
+import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
 
 import android.app.Dialog;
 import android.content.res.Configuration;
@@ -34,6 +35,7 @@ public class MainActivity extends AppCompatActivity {
 
     TextView confirmedCases, recoveredCases, deceasedCases, confirmedDailyCases, recoveredDailyCases, deceasedDailyCases;
     RecyclerView showStateData;
+    SwipeRefreshLayout refreshData;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -42,6 +44,14 @@ public class MainActivity extends AppCompatActivity {
 
         initComponents();
         getData();
+
+        refreshData.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
+            @Override
+            public void onRefresh() {
+                getData();
+                refreshData.setRefreshing(false);
+            }
+        });
     }
 
     void initComponents() {
@@ -52,6 +62,7 @@ public class MainActivity extends AppCompatActivity {
         recoveredDailyCases = findViewById(R.id.recoveredDailyCases);
         deceasedDailyCases = findViewById(R.id.deceasedDailyCases);
         showStateData = findViewById(R.id.showStateData);
+        refreshData = findViewById(R.id.refreshData);
     }
 
 
