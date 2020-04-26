@@ -38,8 +38,8 @@
                         android:id="@+id/flagCountry"
                         android:layout_width="30dp"
                         android:layout_height="30dp"
-                        android:layout_gravity="center"
-                        android:layout_marginRight="10dp" />
+                        android:layout_gravity="end"
+                        android:layout_marginRight="30dp" />
 
                     <TextView
                         android:id="@+id/tvTitle"
