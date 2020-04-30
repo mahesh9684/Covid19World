@@ -1,11 +1,12 @@
 apply plugin: 'com.android.application'
+apply plugin: 'com.google.gms.google-services'
 
 android {
     compileSdkVersion 29
     buildToolsVersion "29.0.3"
 
     defaultConfig {
-        applicationId "com.info.covid19"
+        applicationId "com.wolfsofweb.covid19"
         minSdkVersion 21
         targetSdkVersion 29
         versionCode 1
@@ -20,7 +21,7 @@ android {
     }
     buildTypes {
         release {
-            minifyEnabled false
+            minifyEnabled true
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
     }
@@ -47,4 +48,7 @@ dependencies {
     implementation 'com.squareup.picasso:picasso:+'
     //noinspection GradleCompatible
     implementation 'com.android.support:support-v4:25.3.1'
+
+    //firebase analytics
+    implementation 'com.google.firebase:firebase-analytics:17.2.2'
 }

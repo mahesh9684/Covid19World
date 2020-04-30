@@ -1,4 +1,4 @@
-package com.info.covid19.adapters;
+package com.wolfsofweb.covid19.adapters;
 
 import android.content.Context;
 import android.content.Intent;
@@ -14,17 +14,16 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.google.gson.JsonArray;
 import com.google.gson.JsonObject;
-import com.info.covid19.R;
-import com.info.covid19.views.StateActivity;
+import com.wolfsofweb.covid19.R;
+import com.wolfsofweb.covid19.views.StateActivity;
 import com.squareup.picasso.Picasso;
 
-public class AllCountryDataAdapter extends RecyclerView.Adapter<AllCountryDataAdapter.MyViewHolder> {
+public class TopAffectedDataAdapter extends RecyclerView.Adapter<TopAffectedDataAdapter.MyViewHolder> {
     Context context;
     JsonArray array;
     int size = 0;
 
-    public AllCountryDataAdapter(Context context, JsonArray array, int size) {
-
+    public TopAffectedDataAdapter(Context context, JsonArray array, int size) {
         this.context = context;
         this.array = array;
         this.size = size;
@@ -32,13 +31,13 @@ public class AllCountryDataAdapter extends RecyclerView.Adapter<AllCountryDataAd
 
     @NonNull
     @Override
-    public AllCountryDataAdapter.MyViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View view = LayoutInflater.from(context).inflate(R.layout.show_recycler_data, parent, false);
+    public TopAffectedDataAdapter.MyViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+        View view = LayoutInflater.from(context).inflate(R.layout.show_affected_data, parent, false);
         return new MyViewHolder(view);
     }
 
     @Override
-    public void onBindViewHolder(@NonNull AllCountryDataAdapter.MyViewHolder holder, int position) {
+    public void onBindViewHolder(@NonNull TopAffectedDataAdapter.MyViewHolder holder, int position) {
 
         JsonObject object = array.get(position).getAsJsonObject();
 
@@ -48,12 +47,14 @@ public class AllCountryDataAdapter extends RecyclerView.Adapter<AllCountryDataAd
         holder.locationDeceased.setText(object.get("total_deaths").toString().replace("\"", ""));
 //        holder.flag.setVisibility(View.GONE);
 
-        /*holder.layout.setOnClickListener(v -> {
+        holder.layout.setOnClickListener(v -> {
 
             if (object.get("country_name").toString().replace("\"", "").equalsIgnoreCase("USA")) {
-                context.startActivity(new Intent(context, StateActivity.class));
+                Intent intent = new Intent(context, StateActivity.class);
+                intent.putExtra("flag", object.get("country_flag").toString().replace("\"", ""));
+                context.startActivity(intent);
             }
-        });*/
+        });
 
         try {
             Picasso.get()

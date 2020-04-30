@@ -1,6 +1,5 @@
-package com.info.covid19.apis;
+package com.wolfsofweb.covid19.apis;
 
-import java.time.Duration;
 import java.util.concurrent.TimeUnit;
 
 import okhttp3.OkHttpClient;

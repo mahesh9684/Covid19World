@@ -1,10 +1,10 @@
-package com.info.covid19.utils;
+package com.wolfsofweb.covid19.utils;
 
 import android.app.Dialog;
 import android.content.Context;
 import android.view.Window;
 
-import com.info.covid19.R;
+import com.wolfsofweb.covid19.R;
 
 public class DialogUtils {
     public static Dialog getLoadingDialog(Context context) {

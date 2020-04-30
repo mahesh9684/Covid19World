@@ -1,69 +1,48 @@
-package com.info.covid19.views;
+package com.wolfsofweb.covid19.views;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
 
 import android.app.Dialog;
-import android.media.Image;
+import android.content.res.Configuration;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.google.gson.JsonArray;
 import com.google.gson.JsonObject;
-import com.info.covid19.R;
-import com.info.covid19.adapters.AllCountryDataAdapter;
-import com.info.covid19.adapters.CountryDataAdapter;
-import com.info.covid19.apis.RetrofitClient;
-import com.info.covid19.utils.DialogUtils;
-import com.squareup.picasso.Picasso;
+import com.wolfsofweb.covid19.adapters.AllCountryDataAdapter;
+import com.wolfsofweb.covid19.R;
+import com.wolfsofweb.covid19.adapters.TopAffectedDataAdapter;
+import com.wolfsofweb.covid19.apis.RetrofitClient;
+import com.wolfsofweb.covid19.utils.DialogUtils;
 
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
-public class StateActivity extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity {
 
-    TextView confirmedCases, recoveredCases, deceasedCases, confirmedDailyCases, recoveredDailyCases, deceasedDailyCases, countryName, tvTitle;
-    RecyclerView showStateData;
-    ImageView backState, flagCountry;
+    TextView confirmedCases, recoveredCases, deceasedCases, confirmedDailyCases, recoveredDailyCases, deceasedDailyCases;
+    RecyclerView showStateData, showTopAffectedCountries;
     SwipeRefreshLayout refreshData;
-    String flag = "";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_state);
+        setContentView(R.layout.activity_main);
+
         initComponents();
-        flag = getIntent().getStringExtra("flag");
         getData();
 
-        if (!flag.equalsIgnoreCase("")) {
-            try {
-                Picasso.get()
-                        .load(flag)
-//                    .resize(30, 50)
-//                    .centerCrop()
-//                    .placeholder(R.mipmap.ic_launcher)
-                        .into(flagCountry);
-            } catch (Exception e) {
-                System.out.println("Exception inside adapter " + e);
-            }
-        }
         refreshData.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
             @Override
             public void onRefresh() {
                 getData();
                 refreshData.setRefreshing(false);
-            }
-        });
-        backState.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                finish();
             }
         });
     }
@@ -77,39 +56,43 @@ public class StateActivity extends AppCompatActivity {
         deceasedDailyCases = findViewById(R.id.deceasedDailyCases);
         showStateData = findViewById(R.id.showStateData);
         refreshData = findViewById(R.id.refreshData);
-        countryName = findViewById(R.id.countryName);
-        backState = findViewById(R.id.backState);
-        tvTitle = findViewById(R.id.tvTitle);
-        flagCountry = findViewById(R.id.flagCountry);
+        showTopAffectedCountries = findViewById(R.id.showTopAffectedCountries);
     }
+
 
     void getData() {
 
-        final Dialog dialog = DialogUtils.getLoadingDialog(StateActivity.this);
+        final Dialog dialog = DialogUtils.getLoadingDialog(MainActivity.this);
         dialog.show();
 
-        Call<JsonObject> result = RetrofitClient.getClient().getStateData();
+        Call<JsonObject> result = RetrofitClient.getClient().getCovidData();
         result.enqueue(new Callback<JsonObject>() {
             @Override
             public void onResponse(Call<JsonObject> call, Response<JsonObject> response) {
                 try {
                     JsonObject model = response.body().getAsJsonObject();
-                    tvTitle.setText(model.get("state").getAsString());
-                    countryName.setText("Across " + model.get("state").getAsString());
                     confirmedCases.setText(model.get("total_cases").getAsString());
                     confirmedDailyCases.setText(model.get("new_cases").getAsString());
                     deceasedCases.setText(model.get("total_deaths").getAsString());
                     deceasedDailyCases.setText(model.get("new_deaths").getAsString());
-                    recoveredCases.setText(model.get("active_cases").getAsString());
-//                    recoveredCases.setText(model.get("total_recovered").getAsString());
+                    recoveredCases.setText(model.get("total_recovered").getAsString());
 
-                    JsonArray array = response.body().getAsJsonObject().getAsJsonArray("states");
+                    JsonArray array = response.body().getAsJsonObject().getAsJsonArray("countries");
 
-                    LinearLayoutManager manager = new LinearLayoutManager(StateActivity.this);
+                    LinearLayoutManager top = new LinearLayoutManager(MainActivity.this, LinearLayoutManager.HORIZONTAL, false);
+//                    top.setOrientation(RecyclerView.HORIZONTAL);
+                    showTopAffectedCountries.setLayoutManager(top);
+                    TopAffectedDataAdapter adapters = new TopAffectedDataAdapter(MainActivity.this, array, 10);
+                    showTopAffectedCountries.setAdapter(adapters);
+                    showTopAffectedCountries.setVisibility(View.VISIBLE);
+
+                    LinearLayoutManager manager = new LinearLayoutManager(MainActivity.this);
                     showStateData.setLayoutManager(manager);
-                    CountryDataAdapter adapter = new CountryDataAdapter(StateActivity.this, array);
+                    AllCountryDataAdapter adapter = new AllCountryDataAdapter(MainActivity.this, array, array.size());
                     showStateData.setAdapter(adapter);
+                    showStateData.setVisibility(View.VISIBLE);
                     dialog.dismiss();
+
                 } catch (Exception e) {
                     dialog.dismiss();
                     System.out.println("Exception is " + e);
@@ -125,7 +108,8 @@ public class StateActivity extends AppCompatActivity {
     }
 
     @Override
-    public void onBackPressed() {
-        finish();
+    public void onConfigurationChanged(@NonNull Configuration newConfig) {
+        super.onConfigurationChanged(newConfig);
     }
+
 }

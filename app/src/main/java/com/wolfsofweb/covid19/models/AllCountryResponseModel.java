@@ -1,4 +1,4 @@
-package com.info.covid19.models;
+package com.wolfsofweb.covid19.models;
 
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;

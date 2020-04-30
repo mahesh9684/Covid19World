@@ -1,4 +1,4 @@
-package com.info.covid19.adapters;
+package com.wolfsofweb.covid19.adapters;
 
 import android.content.Context;
 import android.view.LayoutInflater;
@@ -12,8 +12,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.google.gson.JsonArray;
 import com.google.gson.JsonObject;
-import com.info.covid19.R;
-import com.squareup.picasso.Picasso;
+import com.wolfsofweb.covid19.R;
 
 public class CountryDataAdapter extends RecyclerView.Adapter<CountryDataAdapter.MyViewHolder> {
     Context context;

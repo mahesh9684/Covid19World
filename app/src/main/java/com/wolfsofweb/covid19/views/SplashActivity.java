@@ -1,4 +1,4 @@
-package com.info.covid19.views;
+package com.wolfsofweb.covid19.views;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -9,7 +9,7 @@ import android.os.Bundle;
 import android.view.MotionEvent;
 import android.widget.VideoView;
 
-import com.info.covid19.R;
+import com.wolfsofweb.covid19.R;
 
 
 public class SplashActivity extends AppCompatActivity {

@@ -1,7 +1,6 @@
-package com.info.covid19.apis;
+package com.wolfsofweb.covid19.apis;
 
 
-import com.google.gson.JsonArray;
 import com.google.gson.JsonObject;
 
 import retrofit2.Call;

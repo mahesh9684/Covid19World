@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    package="com.info.covid19">
+    package="com.wolfsofweb.covid19">
 
     <uses-permission android:name="android.permission.INTERNET" />
 
@@ -14,12 +14,12 @@
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true">
         <activity
-            android:name=".views.StateActivity"
+            android:name="com.wolfsofweb.covid19.views.StateActivity"
             android:screenOrientation="portrait"
             android:theme="@style/AppThemeNoAction"
             tools:ignore="LockedOrientationActivity"></activity>
         <activity
-            android:name=".views.SplashActivity"
+            android:name="com.wolfsofweb.covid19.views.SplashActivity"
             android:configChanges="orientation|screenSize"
             android:screenOrientation="portrait"
             android:theme="@style/AppThemeNoAction"
@@ -31,7 +31,7 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".views.MainActivity"
+            android:name="com.wolfsofweb.covid19.views.MainActivity"
             android:screenOrientation="portrait"
             android:theme="@style/AppThemeNoAction"
             tools:ignore="LockedOrientationActivity"></activity>
