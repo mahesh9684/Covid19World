@@ -8,3 +8,7 @@ here are the links :
 
 1. https://api.wolfsofweb.com/v1/all.php
 2. https://api.wolfsofweb.com/v1/usa.php
+
+![](splash.jpg)
+![](home_page.jpg)
+![](country_page.jpg)
